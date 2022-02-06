@@ -110,6 +110,9 @@ jobs:
   Compile-Linux-x86-64: 
     name: Compile (Linux-x86-64)
     runs-on: ubuntu-latest
+    container: 
+      image: wolframresearch/wolframengine:latest
+      options: --user root
     env: 
       WOLFRAMSCRIPT_ENTITLEMENTID: ${{ secrets.WOLFRAMSCRIPT_ENTITLEMENTID }}
       WOLFRAM_LIBRARY_BUILD_SCRIPT: ./Scripts/Compile.wls

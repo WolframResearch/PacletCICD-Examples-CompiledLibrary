@@ -17,7 +17,7 @@ jobs:
       WOLFRAMENGINE_INSTALL_MSI_DOWNLOAD_URL: https://files.wolframcdn.com/packages/winget/13.0.0.0/WolframEngine_13.0.0_WIN.msi
       WOLFRAMENGINE_CACHE_KEY: WolframEngine-A
       WOLFRAMENGINE_INSTALLATION_SUBDIRECTORY: WolframEngine
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps: 
     - name: Checkout Code
       id: checkout-code
@@ -31,7 +31,7 @@ jobs:
         path: ${{ env.WOLFRAMENGINE_INSTALLATION_DIRECTORY }}
         key: wolframengine-${{ env.WOLFRAM_SYSTEM_ID }}-${{ env.WOLFRAMENGINE_CACHE_KEY }}
     - name: Download and install Wolfram Engine
-      if: steps.cache-restore.outputs.cache-hit != 'true'
+      if: steps.cache-restore-step.outputs.cache-hit != 'true'
       env: 
         WOLFRAMENGINE_INSTALLATION_DIRECTORY: '${{ runner.temp }}\${{ env.WOLFRAMENGINE_INSTALLATION_SUBDIRECTORY }}'
         WOLFRAMENGINE_INSTALL_MSI_PATH: '${{ runner.temp }}\WolframEngine-Install.msi'
@@ -78,7 +78,7 @@ jobs:
       WOLFRAM_SYSTEM_ID: MacOSX-x86-64
       WOLFRAMENGINE_CACHE_KEY: WolframEngine-A
       WOLFRAMENGINE_INSTALLATION_DIRECTORY: "/Applications/Wolfram Engine.app"
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps: 
     - name: Checkout Code
       id: checkout-code
@@ -90,7 +90,7 @@ jobs:
         path: ${{ env.WOLFRAMENGINE_INSTALLATION_DIRECTORY }}
         key: wolframengine-${{ env.WOLFRAM_SYSTEM_ID }}-${{ env.WOLFRAMENGINE_CACHE_KEY }}
     - name: Download and install Wolfram Engine
-      if: steps.cache-restore.outputs.cache-hit != 'true'
+      if: steps.cache-restore-step.outputs.cache-hit != 'true'
       run: |
         echo 'Installing Wolfram Engine...'
         brew install --cask wolfram-engine
@@ -118,7 +118,7 @@ jobs:
       WOLFRAM_LIBRARY_BUILD_SCRIPT: ./Scripts/Compile.wls
       WOLFRAM_LIBRARY_BUILD_OUTPUT: LibraryResources/
       WOLFRAM_SYSTEM_ID: Linux-x86-64
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps: 
     - name: Checkout Code
       id: checkout-code
@@ -143,7 +143,7 @@ jobs:
     env: 
       WOLFRAM_SYSTEM_ID: Linux-x86-64
       WOLFRAMSCRIPT_ENTITLEMENTID: ${{ secrets.WOLFRAMSCRIPT_ENTITLEMENTID }}
-    timeout-minutes: 10
+    timeout-minutes: 20
     needs:  [Compile-Windows-x86-64, Compile-MacOSX-x86-64, Compile-Linux-x86-64]
     steps: 
     - name: Checkout Code

@@ -36,7 +36,7 @@ jobs:
         WOLFRAMENGINE_INSTALLATION_DIRECTORY: '${{ runner.temp }}\${{ env.WOLFRAMENGINE_INSTALLATION_SUBDIRECTORY }}'
         WOLFRAMENGINE_INSTALL_MSI_PATH: '${{ runner.temp }}\WolframEngine-Install.msi'
         WOLFRAMENGINE_INSTALL_LOG_PATH: '${{ runner.temp }}\WolframEngine-Install.log'
-      run: 
+      run: |
         echo 'Downloading Wolfram Engine installer...'
         $msiFile = '${{ env.WOLFRAMENGINE_INSTALL_MSI_PATH }}'
         $logFile = '${{ env.WOLFRAMENGINE_INSTALL_LOG_PATH }}'
@@ -60,7 +60,7 @@ jobs:
       env: 
         WOLFRAMENGINE_INSTALLATION_DIRECTORY: '${{ runner.temp }}\${{ env.WOLFRAMENGINE_INSTALLATION_SUBDIRECTORY }}'
         WOLFRAMINIT: "-pwfile !cloudlm.wolfram.com -entitlement ${{ secrets.WOLFRAMSCRIPT_ENTITLEMENTID }}"
-      run: 
+      run: |
         $env:Path += ';${{ env.WOLFRAMENGINE_INSTALLATION_DIRECTORY }}\'
         wolfram -script ${{ env.WOLFRAM_LIBRARY_BUILD_SCRIPT }}
     - name: Archive compiled libraries
@@ -91,7 +91,7 @@ jobs:
         key: wolframengine-${{ env.WOLFRAM_SYSTEM_ID }}-${{ env.WOLFRAMENGINE_CACHE_KEY }}
     - name: Download and install Wolfram Engine
       if: steps.cache-restore.outputs.cache-hit != 'true'
-      run: 
+      run: |
         echo 'Installing Wolfram Engine...'
         brew install --cask wolfram-engine
         echo 'Installed Wolfram Engine.'
@@ -99,7 +99,7 @@ jobs:
       env: 
         WOLFRAMENGINE_EXECUTABLES_DIRECTORY: "${{ env.WOLFRAMENGINE_INSTALLATION_DIRECTORY }}/Contents/Resources/Wolfram Player.app/Contents/MacOS"
         WOLFRAMSCRIPT_KERNELPATH: "${{ env.WOLFRAMENGINE_INSTALLATION_DIRECTORY }}/Contents/MacOS/WolframKernel"
-      run: 
+      run: |
         export PATH="${{ env.WOLFRAMENGINE_EXECUTABLES_DIRECTORY }}:$PATH"
         wolframscript -debug -verbose -script ${{ env.WOLFRAM_LIBRARY_BUILD_SCRIPT }}
     - name: Archive compiled libraries
@@ -121,7 +121,7 @@ jobs:
       id: checkout-code
       uses: actions/checkout@v2
     - name: Install build tools
-      run: 
+      run: |
         apt-get -y update
         apt-get -y install build-essential
     - name: Compile libraries

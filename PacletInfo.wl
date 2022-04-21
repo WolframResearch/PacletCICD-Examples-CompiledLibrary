@@ -1,18 +1,18 @@
 PacletObject[ <|
-    "Name"             -> "MyPublisher/CompiledLibraryExamplePaclet",
+    "Name"             -> "SamplePublisher/CompiledLibraryExamplePaclet",
     "Description"      -> "An example paclet that delivers compiled library resources",
-    "Creator"          -> "Example Author",
+    "Creator"          -> "Sample Author",
     "Version"          -> "1.0.0",
     "WolframVersion"   -> "13.0+",
     "License"          -> "MIT",
-    "PublisherID"      -> "MyPublisher",
+    "PublisherID"      -> "SamplePublisher",
     "SourceControlURL" -> "https://github.com/rhennigan/PacletCICD-Examples-CompiledLibrary",
     "Extensions"       -> {
         {
             "Kernel",
             "Root"    -> "Kernel",
-            "Context" -> { "MyPublisher`CompiledLibraryExamplePaclet`" },
-            "Symbols" -> { "MyPublisher`CompiledLibraryExamplePaclet`AddOne" }
+            "Context" -> { "SamplePublisher`CompiledLibraryExamplePaclet`" },
+            "Symbols" -> { "SamplePublisher`CompiledLibraryExamplePaclet`AddOne" }
         },
         {
             "Documentation",

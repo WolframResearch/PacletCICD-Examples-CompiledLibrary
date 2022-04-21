@@ -36,19 +36,19 @@ Notebook[
       CellID -> 102775589
      ],
      Cell[
-      "MyPublisher/CompiledLibraryExamplePaclet",
+      "SamplePublisher/CompiledLibraryExamplePaclet",
       "Categorization",
       CellLabel -> "Paclet Name",
       CellID -> 13203781
      ],
      Cell[
-      "MyPublisher`CompiledLibraryExamplePaclet`",
+      "SamplePublisher`CompiledLibraryExamplePaclet`",
       "Categorization",
       CellLabel -> "Context",
       CellID -> 423919477
      ],
      Cell[
-      "MyPublisher/CompiledLibraryExamplePaclet/ref/AddTwo",
+      "SamplePublisher/CompiledLibraryExamplePaclet/ref/AddTwo",
       "Categorization",
       CellLabel -> "URI",
       CellID -> 123088812
@@ -117,7 +117,7 @@ Notebook[
             ButtonBox[
              "AddTwo",
              BaseStyle -> "Link",
-             ButtonData -> "paclet:MyPublisher/CompiledLibraryExamplePaclet/ref/AddTwo"
+             ButtonData -> "paclet:SamplePublisher/CompiledLibraryExamplePaclet/ref/AddTwo"
             ],
             "[",
             StyleBox["x", "TI"],
@@ -234,7 +234,7 @@ Notebook[
         {
          "Needs",
          "[",
-         "\"MyPublisher`CompiledLibraryExamplePaclet`\"",
+         "\"SamplePublisher`CompiledLibraryExamplePaclet`\"",
          "]"
         }
        ]

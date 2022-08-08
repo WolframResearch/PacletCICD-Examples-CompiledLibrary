@@ -6,7 +6,7 @@ PacletObject[ <|
     "WolframVersion"   -> "13.0+",
     "License"          -> "MIT",
     "PublisherID"      -> "SamplePublisher",
-    "SourceControlURL" -> "https://github.com/rhennigan/PacletCICD-Examples-CompiledLibrary",
+    "SourceControlURL" -> "https://github.com/WolframResearch/PacletCICD-Examples-CompiledLibrary",
     "Extensions"       -> {
         {
             "Kernel",

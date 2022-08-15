@@ -2,7 +2,7 @@ PacletObject[ <|
     "Name"             -> "SamplePublisher/CompiledLibraryExamplePaclet",
     "Description"      -> "An example paclet that delivers compiled library resources",
     "Creator"          -> "Sample Author",
-    "Version"          -> "1.3.0",
+    "Version"          -> "1.6.0",
     "WolframVersion"   -> "13.0+",
     "License"          -> "MIT",
     "PublisherID"      -> "SamplePublisher",
